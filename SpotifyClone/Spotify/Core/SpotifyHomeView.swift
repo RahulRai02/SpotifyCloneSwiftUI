@@ -18,16 +18,17 @@ struct SpotifyHomeView: View {
             Color.spotifyBlack.ignoresSafeArea()
 //            header
             ScrollView(.vertical) {
-                LazyVStack(spacing: 2, pinnedViews: [.sectionHeaders], content: {
+                LazyVStack(spacing: 2,
+                           pinnedViews: [.sectionHeaders],
+                           content: {
                     Section {
-                        VStack{
-                            LazyVGrid(columns: [GridItem(.flexible(minimum: 20)), GridItem(.flexible(minimum: 20))], content: {
-                                ForEach(products) { product in
-                                    SpotifyRecentsCell(imageName: product.firstImage,
-                                                       title: product.title)
-                                }
-                            })
+                        VStack(spacing: 16){
+                            recentSection
+                            if let product = products.first{
+                                newReleaseSection(product: product)
+                            }
                         }
+                        .padding(.horizontal, 16)
 //                        ForEach(0..<20) { _ in
 //                            Rectangle()
 //                                .fill(Color.red)
@@ -46,6 +47,31 @@ struct SpotifyHomeView: View {
             await getData()
         }
         .toolbar(.hidden, for: .navigationBar)
+    }
+    
+    private var recentSection: some View{
+        LazyVGrid(columns: [GridItem(.flexible(minimum: 20)), GridItem(.flexible(minimum: 20))], content: {
+            ForEach(products) { product in
+                SpotifyRecentsCell(imageName: product.firstImage,
+                                   title: product.title)
+            }
+        })
+    }
+    
+    private func newReleaseSection(product: Product) -> some View{
+        SpotifyNewReleaseCell(
+            imageName: product.firstImage,
+            headline: product.brand,
+            subheadline: product.warrantyInformation,
+            title: product.title,
+            subtitle: product.shippingInformation,
+            onAddToPlaylistPressed: {
+                
+            },
+            onPlayPressed: {
+                
+            }
+        )
     }
     
     private func getData() async{

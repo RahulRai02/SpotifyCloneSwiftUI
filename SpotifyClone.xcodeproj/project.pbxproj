@@ -21,6 +21,7 @@
 		B7B576632CB7EF3600AF8E36 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B576622CB7EF3600AF8E36 /* DatabaseHelper.swift */; };
 		B7B576652CB80C4800AF8E36 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B576642CB80C4800AF8E36 /* Product.swift */; };
 		B7B576672CB80C5200AF8E36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B576662CB80C5200AF8E36 /* User.swift */; };
+		B7D1D9BA2CC7F30200CCC3A0 /* SpotifyNewReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B7B576622CB7EF3600AF8E36 /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		B7B576642CB80C4800AF8E36 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B7B576662CB80C5200AF8E36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNewReleaseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				B7674CEF2CBD695F0064E905 /* SpotifyCategoryCell.swift */,
 				B7674CF42CBD9E8B0064E905 /* SpotifyRecentsCell.swift */,
+				B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				B7B5765F2CB7E67900AF8E36 /* ImageLoaderView.swift in Sources */,
 				B7674CF32CBD86620064E905 /* Category.swift in Sources */,
 				B7674CF02CBD695F0064E905 /* SpotifyCategoryCell.swift in Sources */,
+				B7D1D9BA2CC7F30200CCC3A0 /* SpotifyNewReleaseCell.swift in Sources */,
 				B7B576632CB7EF3600AF8E36 /* DatabaseHelper.swift in Sources */,
 				B7674CEE2CBD660D0064E905 /* SpotifyHomeView.swift in Sources */,
 				B7B5764F2CB7E57F00AF8E36 /* ContentView.swift in Sources */,
