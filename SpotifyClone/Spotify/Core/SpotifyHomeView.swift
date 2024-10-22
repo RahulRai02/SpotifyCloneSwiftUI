@@ -11,6 +11,7 @@ struct SpotifyHomeView: View {
     
     @State private var currentUser: User? = nil
     @State private var selectedCateogry: Category? = nil
+    @State private var products : [Product] = []
     var body: some View {
         ZStack{
 //            Color.red.ignoresSafeArea()
@@ -19,11 +20,19 @@ struct SpotifyHomeView: View {
             ScrollView(.vertical) {
                 LazyVStack(spacing: 2, pinnedViews: [.sectionHeaders], content: {
                     Section {
-                        ForEach(0..<20) { _ in
-                            Rectangle()
-                                .fill(Color.red)
-                                .frame(width: 200, height: 200)
+                        VStack{
+                            LazyVGrid(columns: [GridItem(.flexible(minimum: 20)), GridItem(.flexible(minimum: 20))], content: {
+                                ForEach(products) { product in
+                                    SpotifyRecentsCell(imageName: product.firstImage,
+                                                       title: product.title)
+                                }
+                            })
                         }
+//                        ForEach(0..<20) { _ in
+//                            Rectangle()
+//                                .fill(Color.red)
+//                                .frame(width: 200, height: 200)
+//                        }
                     } header: {
                         header
                     }
@@ -42,6 +51,7 @@ struct SpotifyHomeView: View {
     private func getData() async{
         do{
             currentUser = try await DatabaseHelper().getUsers().last
+            products = try await Array(DatabaseHelper().getProducts().prefix(8))
         }catch{
             
         }
