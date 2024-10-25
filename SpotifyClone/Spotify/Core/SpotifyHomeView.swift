@@ -12,6 +12,8 @@ struct SpotifyHomeView: View {
     @State private var currentUser: User? = nil
     @State private var selectedCateogry: Category? = nil
     @State private var products : [Product] = []
+    @State private var productRows: [ProductRow] = []
+    
     var body: some View {
         ZStack{
 //            Color.red.ignoresSafeArea()
@@ -24,16 +26,17 @@ struct SpotifyHomeView: View {
                     Section {
                         VStack(spacing: 16){
                             recentSection
+                                .padding(.horizontal, 8)
                             if let product = products.first{
                                 newReleaseSection(product: product)
+                                    .padding(.horizontal, 8)
                             }
                         }
                         .padding(.horizontal, 16)
-//                        ForEach(0..<20) { _ in
-//                            Rectangle()
-//                                .fill(Color.red)
-//                                .frame(width: 200, height: 200)
-//                        }
+                        
+                        listRows
+                    
+                    
                     } header: {
                         header
                     }
@@ -42,6 +45,7 @@ struct SpotifyHomeView: View {
             }
             .scrollIndicators(.hidden)
             .clipped()
+            
         }
         .task{
             await getData()
@@ -54,7 +58,9 @@ struct SpotifyHomeView: View {
             ForEach(products) { product in
                 SpotifyRecentsCell(imageName: product.firstImage,
                                    title: product.title)
+                
             }
+            
         })
     }
     
@@ -74,12 +80,55 @@ struct SpotifyHomeView: View {
         )
     }
     
+    private var listRows: some View{
+        ForEach(productRows) { row in
+            VStack(spacing: 8){
+                Text(row.title)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.spotifyWhite)
+                    .frame(maxWidth: .infinity,
+                           alignment: .leading)
+//                                .background(Color.red)
+                    .padding(.horizontal, 8)
+                
+                ScrollView(.horizontal){
+                    HStack(alignment:.top, spacing: 16){
+                        ForEach(row.products) { product in
+                            ImageTitleRowCell(
+                                imageSize: 120,
+                                imageName: product.firstImage,
+                                title: product.title
+                            )
+                        }
+                    }
+//                                    .background(Color.blue)
+                    .padding(.horizontal, 8)
+                }
+                .scrollIndicators(.hidden)
+//                                .background(Color.red)
+            }
+        }
+
+    }
+    
     private func getData() async{
         do{
             currentUser = try await DatabaseHelper().getUsers().last
             products = try await Array(DatabaseHelper().getProducts().prefix(8))
-        }catch{
             
+            
+            var rows: [ProductRow] = []
+            
+            let allBrands = Set(products.map({ $0.brand }))
+            
+            for brand in allBrands{
+//                let products = products.filter({$0.brand == brand})
+                rows.append(ProductRow(title: brand!.capitalized , products: products))
+            }
+            productRows = rows
+        }catch{
+             
         }
     }
 

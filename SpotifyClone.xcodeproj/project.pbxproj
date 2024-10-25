@@ -22,6 +22,7 @@
 		B7B576652CB80C4800AF8E36 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B576642CB80C4800AF8E36 /* Product.swift */; };
 		B7B576672CB80C5200AF8E36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B576662CB80C5200AF8E36 /* User.swift */; };
 		B7D1D9BA2CC7F30200CCC3A0 /* SpotifyNewReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */; };
+		B7D1D9BC2CC82E1900CCC3A0 /* ImageTitleRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D1D9BB2CC82E1900CCC3A0 /* ImageTitleRowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B7B576642CB80C4800AF8E36 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B7B576662CB80C5200AF8E36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNewReleaseCell.swift; sourceTree = "<group>"; };
+		B7D1D9BB2CC82E1900CCC3A0 /* ImageTitleRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleRowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				B7674CEF2CBD695F0064E905 /* SpotifyCategoryCell.swift */,
 				B7674CF42CBD9E8B0064E905 /* SpotifyRecentsCell.swift */,
 				B7D1D9B92CC7F30100CCC3A0 /* SpotifyNewReleaseCell.swift */,
+				B7D1D9BB2CC82E1900CCC3A0 /* ImageTitleRowCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B7D1D9BA2CC7F30200CCC3A0 /* SpotifyNewReleaseCell.swift in Sources */,
 				B7B576632CB7EF3600AF8E36 /* DatabaseHelper.swift in Sources */,
 				B7674CEE2CBD660D0064E905 /* SpotifyHomeView.swift in Sources */,
+				B7D1D9BC2CC82E1900CCC3A0 /* ImageTitleRowCell.swift in Sources */,
 				B7B5764F2CB7E57F00AF8E36 /* ContentView.swift in Sources */,
 				B7B5764D2CB7E57F00AF8E36 /* SpotifyCloneApp.swift in Sources */,
 				B7B576612CB7E70000AF8E36 /* Constants.swift in Sources */,
